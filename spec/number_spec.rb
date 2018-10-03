@@ -188,4 +188,12 @@ RSpec.describe "Convert ints to string number" do
     it "returns the string of int 1,000,000,000,000" do
       expect(convert(1000000000000) ).to eq "one trillion"
     end
+
+    it "returns the string of int 999,999,999,999,999" do
+      expect(convert(999999999999999) ).to eq "nine hundred and ninety nine trillion nine hundred and ninety nine billion nine hundred and ninety nine million nine hundred and ninety nine thousand nine hundred and ninety nine"
+    end
+
+    it "returns the string of int -1" do
+      expect(convert(-1) ).to eq "minus one"
+    end
 end

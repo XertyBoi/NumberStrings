@@ -32,6 +32,10 @@ def convert(num)
 
     bounds_list.each do |bound|
 
+      if (num < 0)
+        return "minus #{convert(num.abs)}"
+      end
+
       if num <= bound.max_bounds
         return bound.array_to_select[num] if bound.divide.nil?
 
