@@ -43,10 +43,13 @@ def convert(num)
         #problem with double 'ands' eg 'one thousand and one hundred and four'
 
         #solution: only put 'and' if converted remainder is contained within units,tens or specials
-        #to sort if you should move out of current bracket, ie (100k) take digit length and compare remainder
-        if num == 10000
-          return "ten thousand"
-        elsif remainder != 0
+
+        #allows up to 999,000 ect after 10s value
+
+        if (whole_num <= bound.max_bounds/bound.divide) && (bound.max_bounds > 99)
+          prefix = "#{convert(whole_num)}#{bound.size_string}" + (remainder > 0 ? " " : "")
+        end
+        if remainder != 0
           suffix = (bound.needs_and ? (remainder < 100 ? "and " : "") : "") + "#{convert(remainder)}"
         end
 
