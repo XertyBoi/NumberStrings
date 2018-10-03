@@ -118,4 +118,17 @@ RSpec.describe "Convert ints to string number" do
     expect( convert(1002) ).to eq "one thousand and two"
     expect( convert(1009) ).to eq "one thousand and nine"
   end
+
+
+    it "returns the string of int 1000-1999" do
+      expect( convert(1104) ).to eq "one thousand one hundred and four"
+      expect( convert(1217) ).to eq "one thousand two hundred and seventeen"
+      expect( convert(1422) ).to eq "one thousand four hundred and twenty two"
+      expect( convert(1567) ).to eq "one thousand five hundred and sixty seven"
+      expect( convert(1691) ).to eq "one thousand six hundred and ninety one"
+      expect( convert(1760) ).to eq "one thousand seven hundred and sixty"
+      expect( convert(1832) ).to eq "one thousand eight hundred and thirty two"
+      expect( convert(1910) ).to eq "one thousand nine hundred and ten"
+
+    end
 end

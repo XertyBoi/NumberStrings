@@ -26,7 +26,7 @@ def convert(num)
     when (num < 1000)
       output = (num%100 == 0) ? "#{units[num/100]} hundred" : "#{units[num/100]} hundred and #{convert(num%100)}"
     when (num >= 1000)
-      output = (num == 1000) ? "one thousand" : "one thousand and #{convert(num%1000)}"
+      output = (num == 1000) ? "one thousand" : "one thousand" +  ((num%1000 < 100) ? " and " : " ")  + "#{convert(num%1000)}"
     else
       ""
     end
