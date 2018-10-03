@@ -16,10 +16,20 @@ def convert(num)
      19 => "nineteen"
   }
 
-    bounds_list = [Bound.new(10,nil,nil,units),Bound.new(20,nil,nil,specials)]
+    bounds_list = [
+      Bound.new(10,1,nil,units), #units
+      Bound.new(20,1,nil,specials), #teens
+      Bound.new(20,10,nil,specials) #tens
+    ]
+
+    #if num < max bound then get from array (units + teens)
 
     bounds_list.each do |bound|
-      return bound.array_to_select[num] if num < bound.max_bounds
+
+      if num < bound.max_bounds
+        return bound.array_to_select[num/1]
+      end
+
     end
 
     case
