@@ -39,10 +39,6 @@ def convert(num)
     end
 
     case
-    when (num < 100)
-      tens_int = num/10
-      remainder = num%10
-      output = (remainder == 0) ? tens[tens_int] : tens[tens_int] + " " + convert(remainder)
     when (num < 1000)
       output = (num%100 == 0) ? "#{units[num/100]} hundred" : "#{units[num/100]} hundred and #{convert(num%100)}"
     when (num >= 1000)
