@@ -129,6 +129,9 @@ RSpec.describe "Convert ints to string number" do
       expect( convert(1760) ).to eq "one thousand seven hundred and sixty"
       expect( convert(1832) ).to eq "one thousand eight hundred and thirty two"
       expect( convert(1910) ).to eq "one thousand nine hundred and ten"
+    end
 
+    it "returns the string of int 2000" do
+      expect( convert(2000) ).to eq "two thousand"
     end
 end
