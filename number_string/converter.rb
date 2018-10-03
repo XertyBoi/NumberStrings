@@ -17,9 +17,10 @@ def convert(num)
   }
 
     bounds_list = [
-      Bound.new(10,nil,nil,units), #units
-      Bound.new(20,nil,nil,specials), #teens
-      Bound.new(100,10,"",tens) #tens
+      Bound.new(10,nil,nil,false,units), #units
+      Bound.new(20,nil,nil,false,specials), #teens
+      Bound.new(100,10,nil,false,tens), #tens
+      Bound.new(1000,100," hundred",true,units) #hundreds
     ]
 
     #if num < max bound then get from array (units + teens)
@@ -33,14 +34,15 @@ def convert(num)
         whole_num = num/bound.divide
         remainder = num%bound.divide
 
-        return bound.array_to_select[whole_num] + (remainder == 0 ? "#{bound.size_string}" : " #{convert(remainder)}")
+        #100 example to help my brain: eg: 301 "units[3] hundred" +
+        prefix = "#{bound.array_to_select[whole_num]}#{bound.size_string}"
+        suffix = (remainder == 0 ? "" : (bound.needs_and ? " and" : "") + " #{convert(remainder)}")
+        return  prefix + suffix
       end
 
     end
 
     case
-    when (num < 1000)
-      output = (num%100 == 0) ? "#{units[num/100]} hundred" : "#{units[num/100]} hundred and #{convert(num%100)}"
     when (num >= 1000)
       output = (num%1000 == 0) ? "#{units[num/1000]} thousand" : "#{units[num/1000]} thousand" +  ((num%1000 < 100) ? " and " : " ")  + "#{convert(num%1000)}"
     else
