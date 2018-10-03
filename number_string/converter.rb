@@ -24,7 +24,7 @@ def convert(num)
       remainder = num%10
       output = (remainder == 0) ? tens[tens_int]:tens[tens_int] + " " + convert(remainder)
     when (num < 1000)
-      "one hundred"
+      output = (num == 100) ? "one hundred" : "one hundred and one"
     else
       ""
     end
