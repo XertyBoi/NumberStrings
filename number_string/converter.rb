@@ -25,6 +25,8 @@ def convert(num)
       output = (remainder == 0) ? tens[tens_int]:tens[tens_int] + " " + convert(remainder)
     when (num < 1000)
       output = (num%100 == 0) ? "#{units[num/100]} hundred" : "#{units[num/100]} hundred and #{convert(num%100)}"
+    when (num >= 1000)
+      outpit = "one thousand"
     else
       ""
     end
