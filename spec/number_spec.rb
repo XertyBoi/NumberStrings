@@ -94,4 +94,15 @@ RSpec.describe "Convert ints to string number" do
   it "returns the string of int 210" do
     expect( convert(210) ).to eq "two hundred and ten"
   end
+
+  it "returns the string of ints up to 999" do
+    expect( convert(252) ).to eq "two hundred and fifty two"
+    expect( convert(345) ).to eq "three hundred and fourty five"
+    expect( convert(476) ).to eq "four hundred and seventy six"
+    expect( convert(598) ).to eq "five hundred and ninety eight"
+    expect( convert(618) ).to eq "six hundred and eighteen"
+    expect( convert(730) ).to eq "seven hundred and thirty"
+    expect( convert(812) ).to eq "eight hundred and twelve"
+    expect( convert(999) ).to eq "nine hundred and ninety nine"
+  end
 end
