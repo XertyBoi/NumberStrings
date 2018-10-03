@@ -5,6 +5,8 @@ def convert(num)
     case num
     when 0
       ""
+    when 10
+      "ten"
     else
       units[num]
     end

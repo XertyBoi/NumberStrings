@@ -15,4 +15,8 @@ RSpec.describe "Convert ints to string number" do
     expect( convert(7) ).to eq "seven"
     expect( convert(9) ).to eq "nine"
   end
+
+  it "returns the string of a single int 10" do
+    expect( convert(10) ).to eq "ten"
+  end
 end
