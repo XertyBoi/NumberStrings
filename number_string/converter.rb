@@ -1,10 +1,11 @@
+
 def convert(num)
-  case num
-  when 1
-    "one"
-  when 5
-    "five"
-  else
-    ""
-  end
+  units = ["","one","two","three","four","five","six","seven","eight","nine"]
+
+    case num
+    when 0
+      ""
+    else
+      units[num]
+    end
 end
