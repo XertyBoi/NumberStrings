@@ -21,7 +21,8 @@ def convert(num)
       Bound.new(19,nil,nil,false,specials), #teens
       Bound.new(99,10,nil,false,tens), #tens
       Bound.new(999,100," hundred",true,units), #hundreds
-      Bound.new(999999,1000," thousand",true,units) #thousands
+      Bound.new(999999,1000," thousand",true,units), #thousands
+      Bound.new(999999999,1000000," million",true,units) #millions
     ]
 
     #if num < max bound then get from array (units + teens)

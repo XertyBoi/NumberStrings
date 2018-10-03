@@ -165,4 +165,8 @@ RSpec.describe "Convert ints to string number" do
     it "returns the string of int 999,999" do
       expect(convert(999999) ).to eq "nine hundred and ninety nine thousand nine hundred and ninety nine"
     end
+
+    it "returns the string of int 1,000,000" do
+      expect(convert(1000000) ).to eq "one million"
+    end
 end
