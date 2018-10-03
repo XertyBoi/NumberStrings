@@ -134,4 +134,15 @@ RSpec.describe "Convert ints to string number" do
     it "returns the string of int 2000" do
       expect( convert(2000) ).to eq "two thousand"
     end
+
+    it "returns the string of ints devisable by 1000 up to 9000" do
+      expect( convert(2000) ).to eq "two thousand"
+      expect( convert(3000) ).to eq "three thousand"
+      expect( convert(4000) ).to eq "four thousand"
+      expect( convert(5000) ).to eq "five thousand"
+      expect( convert(6000) ).to eq "six thousand"
+      expect( convert(7000) ).to eq "seven thousand"
+      expect( convert(8000) ).to eq "eight thousand"
+      expect( convert(9000) ).to eq "nine thousand"
+    end
 end
