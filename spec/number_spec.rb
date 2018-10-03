@@ -1,7 +1,7 @@
-RSpec.describe "Ruby Arrays" do
-  it "can be created like any other object" do
-    empty = Array.new
+require_relative "../number_string/converter"
 
-    expect( empty.class ).to eq Array
-    expect( empty.size ).to eq 0
+RSpec.describe "Convert ints to string number" do
+  it "returns the string of a single int" do
+    expect( convert(1) ).to eq "one"
   end
+end
