@@ -1,3 +1,4 @@
+require_relative "bounds_object"
 
 def convert(num)
   units = ["","one","two","three","four","five","six","seven","eight","nine"]
@@ -15,8 +16,11 @@ def convert(num)
      19 => "nineteen"
   }
 
-    return units[num] if num < 10
-    return specials[num] if num < 20
+    bounds_list = [Bound.new(10,nil,nil,units),Bound.new(20,nil,nil,specials)]
+
+    bounds_list.each do |bound|
+      return bound.array_to_select[num] if num < bound.max_bounds
+    end
 
     case
     when (num < 100)

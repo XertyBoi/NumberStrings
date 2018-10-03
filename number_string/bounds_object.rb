@@ -1,11 +1,12 @@
-class Bounds
+class Bound
 
-  attr_accessor :min_bounds,:divide,:size_String
+  attr_accessor :max_bounds,:divide,:size_string,:array_to_select
 
-  def initialize(min,div,string)
-    @min_bounds = min
+  def initialize(max,div,string,array)
+    @max_bounds = max
     @divide = div
-    @size_String = string
+    @size_string = string
+    @array_to_select = array
   end
 
 end
