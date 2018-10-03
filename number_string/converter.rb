@@ -20,11 +20,9 @@ def convert(num)
     when (num < 20)
       specials[num]
     when (num > 19)
-      if (num == 21)
-      "twenty one"
-    else
-      tens[num/10]
-    end
+      tens_int = num/10
+      remainder = num%10
+      output = (remainder == 0) ? tens[tens_int]:tens[tens_int] + " " + convert(remainder)
     else
       ""
     end
