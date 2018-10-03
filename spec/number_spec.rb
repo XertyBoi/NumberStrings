@@ -86,4 +86,8 @@ RSpec.describe "Convert ints to string number" do
   it "returns the string of int 200" do
     expect( convert(200) ).to eq "two hundred"
   end
+
+  it "returns the string of int 201" do
+    expect( convert(201) ).to eq "two hundred and one"
+  end
 end
