@@ -23,7 +23,9 @@ def convert(num)
       Bound.new(999,100," hundred",true,units), #hundreds
       Bound.new(999999,1000," thousand",true,units), #thousands
       Bound.new(999999999,1000000," million",true,units), #millions
-      Bound.new(999999999999999,1000000000," billion",true,units) #millions
+      Bound.new(999999999999,1000000000," billion",true,units), #billions
+      Bound.new(999999999999999,1000000000000," trillion",true,units) #millions
+
     ]
 
     #if num < max bound then get from array (units + teens)
