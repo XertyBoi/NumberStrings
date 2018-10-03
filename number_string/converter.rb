@@ -7,19 +7,17 @@ def convert(num)
      12 => "twelve",
      13 => "thirteen",
      14 => "fourteen",
-     15 => "fifthteen",
+     15 => "fithteen",
      16 => "sixteen",
      17 => "seventeen",
      18 => "eighteen",
      19 => "nineteen"
   }
-    case num
-    when 0
+    case
+    when (num == 0)
       ""
-    when 10
-      "ten"
-    when 11
-      "eleven"
+    when (num > 9)
+      specials[num]
     else
       units[num]
     end
