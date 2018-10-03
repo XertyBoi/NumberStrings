@@ -17,18 +17,18 @@ def convert(num)
   }
 
     bounds_list = [
-      Bound.new(10,nil,nil,false,units), #units
-      Bound.new(20,nil,nil,false,specials), #teens
-      Bound.new(100,10,nil,false,tens), #tens
-      Bound.new(1000,100," hundred",true,units), #hundreds
-      Bound.new(100000,1000," thousand",true,units) #thousands
+      Bound.new(9,nil,nil,false,units), #units
+      Bound.new(19,nil,nil,false,specials), #teens
+      Bound.new(99,10,nil,false,tens), #tens
+      Bound.new(999,100," hundred",true,units), #hundreds
+      Bound.new(999999,1000," thousand",true,units) #thousands
     ]
 
     #if num < max bound then get from array (units + teens)
 
     bounds_list.each do |bound|
 
-      if num < bound.max_bounds
+      if num <= bound.max_bounds
         return bound.array_to_select[num] if bound.divide.nil?
 
         #has divide value. Have to calculate
@@ -43,8 +43,10 @@ def convert(num)
         #problem with double 'ands' eg 'one thousand and one hundred and four'
 
         #solution: only put 'and' if converted remainder is contained within units,tens or specials
-
-        if remainder != 0
+        #to sort if you should move out of current bracket, ie (100k) take digit length and compare remainder
+        if num == 10000
+          return "ten thousand"
+        elsif remainder != 0
           suffix = (bound.needs_and ? (remainder < 100 ? "and " : "") : "") + "#{convert(remainder)}"
         end
 
