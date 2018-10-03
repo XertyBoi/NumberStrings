@@ -17,9 +17,9 @@ def convert(num)
   }
 
     bounds_list = [
-      Bound.new(10,1,nil,units), #units
-      Bound.new(20,1,nil,specials), #teens
-      Bound.new(20,10,nil,specials) #tens
+      Bound.new(10,nil,nil,units), #units
+      Bound.new(20,nil,nil,specials), #teens
+      Bound.new(100,10,"",tens) #tens
     ]
 
     #if num < max bound then get from array (units + teens)
@@ -27,7 +27,13 @@ def convert(num)
     bounds_list.each do |bound|
 
       if num < bound.max_bounds
-        return bound.array_to_select[num/1]
+        return bound.array_to_select[num] if bound.divide.nil?
+
+        #has divide value. Have to calculate
+        whole_num = num/bound.divide
+        remainder = num%bound.divide
+
+        return bound.array_to_select[whole_num] + (remainder == 0 ? "#{bound.size_string}" : " #{convert(remainder)}")
       end
 
     end
