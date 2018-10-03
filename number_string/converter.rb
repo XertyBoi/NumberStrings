@@ -16,8 +16,10 @@ def convert(num)
     case
     when (num == 0)
       ""
-    when (num > 9)
+    when (num > 9 && num < 20)
       specials[num]
+    when (num > 19)
+      "twenty"
     else
       units[num]
     end
