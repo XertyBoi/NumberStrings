@@ -175,6 +175,13 @@ RSpec.describe "Convert ints to string number" do
       expect(convert(34050601) ).to eq "thirty four million fifty thousand six hundred and one"
       expect(convert(524050625) ).to eq "five hundred and twenty four million fifty thousand six hundred and twenty five"
       expect(convert(999999999) ).to eq "nine hundred and ninety nine million nine hundred and ninety nine thousand nine hundred and ninety nine"
+    end
 
+    it "returns the string of int 1,000,000,000" do
+      expect(convert(1000000000) ).to eq "one billion"
+    end
+
+    it "returns the string of int 999,000,000,000" do
+      expect(convert(999000000000) ).to eq "nine hundred and ninety nine billion"
     end
 end

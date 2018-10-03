@@ -22,7 +22,8 @@ def convert(num)
       Bound.new(99,10,nil,false,tens), #tens
       Bound.new(999,100," hundred",true,units), #hundreds
       Bound.new(999999,1000," thousand",true,units), #thousands
-      Bound.new(999999999,1000000," million",true,units) #millions
+      Bound.new(999999999,1000000," million",true,units), #millions
+      Bound.new(999999999999999,1000000000," billion",true,units) #millions
     ]
 
     #if num < max bound then get from array (units + teens)
@@ -37,13 +38,11 @@ def convert(num)
         remainder = num%bound.divide
 
         #100 example to help my brain: eg: 301 "units[3] hundred"
-        #10,000 example to help my brain: eg: 10,000 "units[3] hundred"
 
         prefix = "#{bound.array_to_select[whole_num]}#{bound.size_string}" + (remainder > 0 ? " " : "")
         suffix = ""
-        #problem with double 'ands' eg 'one thousand and one hundred and four'
-
-        #solution: only put 'and' if converted remainder is contained within units,tens or specials
+        #problem : with double 'ands' eg 'one thousand and one hundred and four'
+        #solution: only put 'and' if (num/bound divide) is less or equal to (bound max/bound div)
 
         #allows up to 999,000 ect after 10s value
 
