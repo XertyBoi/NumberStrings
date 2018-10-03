@@ -1,6 +1,7 @@
 
 def convert(num)
   units = ["","one","two","three","four","five","six","seven","eight","nine"]
+  tens = ["","ten","twenty","thirty","fourty","fifty","sixty","seventy","eighty","ninety"]
   specials = {
      10 => "ten",
      11 => "eleven",
@@ -14,13 +15,17 @@ def convert(num)
      19 => "nineteen"
   }
     case
-    when (num == 0)
-      ""
-    when (num > 9 && num < 20)
+    when (num < 10)
+      units[num]
+    when (num < 20)
       specials[num]
     when (num > 19)
-      "twenty"
+      if (num == 21)
+      "twenty one"
     else
-      units[num]
+      tens[num/10]
+    end
+    else
+      ""
     end
 end
