@@ -14,11 +14,11 @@ def convert(num)
      18 => "eighteen",
      19 => "nineteen"
   }
+
+    return units[num] if num < 10
+    return specials[num] if num < 20
+
     case
-    when (num < 10)
-      units[num]
-    when (num < 20)
-      specials[num]
     when (num < 100)
       tens_int = num/10
       remainder = num%10
