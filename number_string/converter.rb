@@ -36,6 +36,8 @@ def convert(num)
         remainder = num%bound.divide
 
         #100 example to help my brain: eg: 301 "units[3] hundred"
+        #10,000 example to help my brain: eg: 10,000 "units[3] hundred"
+
         prefix = "#{bound.array_to_select[whole_num]}#{bound.size_string}" + (remainder > 0 ? " " : "")
         suffix = ""
         #problem with double 'ands' eg 'one thousand and one hundred and four'
