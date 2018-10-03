@@ -19,10 +19,12 @@ def convert(num)
       units[num]
     when (num < 20)
       specials[num]
-    when (num > 19)
+    when (num < 100)
       tens_int = num/10
       remainder = num%10
       output = (remainder == 0) ? tens[tens_int]:tens[tens_int] + " " + convert(remainder)
+    when (num < 1000)
+      "one hundred"
     else
       ""
     end
