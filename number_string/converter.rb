@@ -45,7 +45,7 @@ def convert(num)
 
         #100 example to help my brain: eg: 301 "units[3] hundred"
 
-        prefix = "#{bound.array_to_select[whole_num]}#{bound.size_string}" + (remainder > 0 ? " " : "")
+        prefix = "#{bound.array_to_select[whole_num]}#{bound.size_string}" + space(remainder)
         suffix = ""
         #problem : with double 'ands' eg 'one thousand and one hundred and four'
         #solution: only put 'and' if (num/bound divide) is less or equal to (bound max/bound div)
@@ -53,14 +53,32 @@ def convert(num)
         #allows up to 999,000 ect after 10s value
 
         if (whole_num <= bound.max_bounds/bound.divide) && (bound.max_bounds > 99)
-          prefix = "#{convert(whole_num)}#{bound.size_string}" + (remainder > 0 ? " " : "")
+          prefix = "#{convert(whole_num)}#{bound.size_string}" + space(remainder)
         end
         if remainder != 0
-          suffix = (bound.needs_and ? (remainder < 100 ? "and " : "") : "") + "#{convert(remainder)}"
+          suffix = make_suffix(bound,remainder)
+          suffix += convert(remainder)
         end
 
         return  prefix + suffix
       end
 
     end
+end
+
+
+def make_suffix(bound, remainder)
+  if (bound.needs_and && remainder < 100)
+    "and "
+  else
+    ""
+  end
+end
+
+def space(remainder)
+  if remainder > 0
+    " "
+  else
+    ""
+  end
 end
