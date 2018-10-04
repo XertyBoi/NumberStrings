@@ -16,17 +16,17 @@ def convert(num)
      19 => "nineteen"
   }
 
-    bounds_list = [
-      Bound.new(9,nil,nil,false,units), #units
-      Bound.new(19,nil,nil,false,specials), #teens
-      Bound.new(99,10,nil,false,tens), #tens
-      Bound.new(999,100," hundred",true,units), #hundreds
-      Bound.new(999999,1000," thousand",true,units), #thousands
-      Bound.new(999999999,1000000," million",true,units), #millions
-      Bound.new(999999999999,1000000000," billion",true,units), #billions
-      Bound.new(999999999999999,1000000000000," trillion",true,units) #millions
+    args1 = [9,19,99,999,999999,999999999,999999999999,999999999999999]
+    args2 = [nil,nil,10,100,1000,1000000,1000000000,1000000000000]
+    args3 = [nil,nil,nil," hundred", " thousand", " million", " billion", " trillion"]
+    args4 = [false,false,false,true,true,true,true,true]
+    args5 = [units,specials,tens,units,units,units,units,units]
 
-    ]
+    bounds_list = []
+
+    (0..7).each do |x|
+      bounds_list << Bound.new(args1[x],args2[x],args3[x],args4[x],args5[x]) #units
+    end
 
     #if num < max bound then get from array (units + teens)
 
