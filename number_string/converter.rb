@@ -24,6 +24,8 @@ def convert(num)
 
     bounds_list = []
 
+    #formula
+
     (0..7).each do |x|
       bounds_list << Bound.new(args1[x],args2[x],args3[x],args4[x],args5[x]) #units
     end
