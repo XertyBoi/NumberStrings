@@ -13,6 +13,12 @@ def calculate(books)
     else
     books.size*8.00
     end
+  when 4
+    if (books[0] != books[1]) && (books[1] != books[2]) && (books[2] != books[3])
+    (books.size*8.00)-((books.size*8.00 / 100)*20)
+    else
+    books.size*8.00
+    end
   else
     8.00
   end
