@@ -14,4 +14,8 @@ RSpec.describe "Calculates the correct discounted price of books" do
     expect(calculate([1,2])).to eq 15.20
   end
 
+  it "checks that 3 books of a different kind have a 10% discount" do
+    expect(calculate([1,2,3])).to eq 21.60
+  end
+
 end
